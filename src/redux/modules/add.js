@@ -95,7 +95,8 @@ export default function reducer(state = initialState, action = {}) {
         case "add/CREATE": {
             // console.log('이제 값을 바꿀거야!');
             // state return해서 전체 값을 콘솔에서 확인하며 하는게 좋다
-            const new_list = [...state.list, action.add];
+            // const new_list = [...state.list, action.add];
+            const new_list = [...state.list];
             return {list: new_list};
         }
 

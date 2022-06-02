@@ -4,22 +4,20 @@ import styled from "styled-components";
 import {useHistory} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 
-import {db} from "./firebase";
-import { collection, doc, getDoc, getDocs, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { loadAddFB } from "./redux/modules/add";
 
 const Main = (props) => {
     const history = useHistory();
     const add_list = useSelector((state) => state.add.list);
     
-    const displatch = useDispatch();
+    const dispatch = useDispatch();
     // const data = props.location.state;
 
     // console.log(add_list);
     // console.log(add_list[0].word, add_list[0].explain, add_list[0].example);
 
-    React.useEffect(async() => {
-        displatch(loadAddFB());
+    React.useEffect(() => {
+        dispatch(loadAddFB());
     }, []);
 
     // React.useEffect(async() => {
@@ -60,9 +58,11 @@ const Main = (props) => {
             })}
 
             <Add onClick={() => {
+                // history.push('./Add');
                 history.push('./Add');
                 // 페이지 새로고침
-                history.go(0);
+                // history.go(0);
+                // window.location.reload();
             }}>
                 +
             </Add>

@@ -5,8 +5,6 @@ import {useHistory} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {createAdd} from "./redux/modules/add";
 
-import {db} from "./firebase";
-import { collection, doc, getDoc, getDocs, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { addAddFB } from "./redux/modules/add";
 
 const Add = (props) => {
@@ -35,6 +33,10 @@ const Add = (props) => {
         dispatch(addAddFB());
     }, []);
 
+    React.useEffect(() => {
+        dispatch(addAddFB());
+    }, []);
+
     // const addInput = () => {
     //     dispatch(createAdd({
     //         word: refWord.current.value,
@@ -58,7 +60,10 @@ const Add = (props) => {
                     addInput();
                     history.push('/');
                     // 페이지 새로고침
-                    history.go(0);
+                    // history.goBack();
+                    // props.history.go();
+                    // history.go(0);
+                    // window.location.reload();
                 }}>추가하기</Button>
             </Card>
         </Wrap>
